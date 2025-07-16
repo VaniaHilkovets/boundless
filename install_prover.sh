@@ -487,7 +487,8 @@ install_rust_deps() {
 
     # Install boundless-cli
     info "Installing boundless-cli..."
-    cargo install --locked boundless-cli --version 0.12.1 >> "$LOG_FILE" 2>&1 || {
+    cargo install --locked --git https://github.com/boundless-xyz/boundless boundless-cli --rev 83c0a707 >> "$LOG_FILE" 2>&1 || {
+
         error "Failed to install boundless-cli"
         exit $EXIT_DEPENDENCY_FAILED
     }
